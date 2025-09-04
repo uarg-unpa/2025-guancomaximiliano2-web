@@ -1,1 +1,21 @@
-probando
+public class Alumno {
+
+    int id;
+    String nombre;
+    String apellido;
+
+    public void mostrarNombre() {
+        System.out.println("Hola, soy alumno de la UNPA y se decir mi nombre");
+    }
+    
+    public void saberSiAprobe (double calificacion) {
+        if (calificacion >=6) {
+            System.out.println("Aprobe, esta re pava la materia");
+        }
+        else {
+            System.out.println("Nooo, tenes que cerrar el estadio, giant giant");
+        }
+    }
+    
+
+}
