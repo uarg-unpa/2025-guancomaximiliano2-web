@@ -1,0 +1,19 @@
+public class Jugador {
+    String nombre;
+    int vida;
+    int medidor;
+}
+public Jugador(int vidaInicial, int medidorAtaque) {
+    this.nombre = nombre;
+    this.vida = vidaInicial;
+    this.medidor = medidorAtaque;
+}
+public void atacar() {
+    if (medidor >= 10) {
+        System.out.println("¡" + nombre + "ataca!");
+        medidor -= 10;
+    }
+    else {
+        Sstem.out.println(nombre + "no tiene suficiente energia ahora");
+    }
+}
