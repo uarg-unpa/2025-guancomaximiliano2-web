@@ -2,18 +2,42 @@ public class Jugador {
     String nombre;
     int vida;
     int medidor;
-}
-public Jugador(int vidaInicial, int medidorAtaque) {
-    this.nombre = nombre;
-    this.vida = vidaInicial;
-    this.medidor = medidorAtaque;
-}
-public void atacar() {
-    if (medidor >= 10) {
-        System.out.println("¡" + nombre + "ataca!");
-        medidor -= 10;
+
+    public Jugador(String nombre, int vida, int medidor) {
+        this.nombre = nombre;
+        this.vida = vida;
+        this.medidor = medidor;
+
     }
-    else {
-        Sstem.out.println(nombre + "no tiene suficiente energia ahora");
+
+    public void atacar () {
+        if (medidor >= 10) {
+            System.out.println("¡" + nombre + "uso medidor de contraataque!");
+            medidor -= 10;
+        }
+        else {
+            System.out.println("¡El medidor esta muy bajo!");
+        }
     }
+
+    public void recibirDanio(int danio) {
+        vida -= danio;
+        if (vida <= 0) {
+            vida = 0;
+        }
+        System.out.println("vida:" + vida);
+    } 
+
+    public int getVida() {
+        return vida;
+    }
+
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Jugador p1 = new Jugador("FC Joel ¡!", 200, 100)
+        p1.atacar();
+        p1.recibirDanio();
+    } 
 }
