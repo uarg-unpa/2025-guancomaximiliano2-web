@@ -1,0 +1,26 @@
+public class Juego {
+    String nombre;
+    int nivel;
+
+
+    public Juego(String nombre, int nivel, Consola consola) {
+        this.nombre = nombre;
+        this.nivel = nivel;
+        this.consola = consola;
+    }
+
+    public void jugar() {
+        if (nivel <= almacenamiento) {
+            System.out.println("Puedes correr este juego en tu consola");
+        }
+        else {
+            System.out.printl("La consola no cumple los requisitos")
+        }
+    }
+
+}
+
+public Consola {
+    String marca;
+    int almacenamiento;
+}
