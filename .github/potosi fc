@@ -1,26 +1,90 @@
+public class Consola {
+    String marca;
+    int almacenamiento;
+
+    public Consola(String marca, int almacenamiento) {
+        this.marca = marca;
+        this.almacenamiento = almacenamiento;
+    }
+
+    public String toString() {
+        return marca + " (" + almacenamiento + "GB";
+    }
+}
+
 public class Juego {
     String nombre;
     int nivel;
+    Consola consola;
 
-
-    public Juego(String nombre, int nivel, Consola consola) {
+    public Juego(String nombe; int nivel, Consola consola) {
         this.nombre = nombre;
         this.nivel = nivel;
         this.consola = consola;
     }
 
-    public void jugar() {
-        if (nivel <= almacenamiento) {
-            System.out.println("Puedes correr este juego en tu consola");
+    public boolean altaCapacidad() {
+        return consola.almacenamiento > 100;
+    }
+
+    public void aumentarNivel(){
+        nivel++;
+    }
+
+    public int estimarTiempoJuego() {
+        return nivel * 2;
+    }
+
+    public void Jugar() {
+        if (altaCapacidad()) {
+            System.out.println("La consola puede correr este juego");
         }
         else {
-            System.out.printl("La consola no cumple los requisitos")
+            System.out.println("La consola no cumple con los requisitos");
         }
     }
 
+    public String toString() {
+        return "Juego: " + nombre + ", Nivel: " + nivel + ", Consola: " + consola;
+    }
 }
 
-public Consola {
-    String marca;
-    int almacenamiento;
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        // Crear el primer juego
+        System.out.println("Ingrese nombre del juego 1:");
+        String nombre1 = sc.nextLine();
+        
+        System.out.println("Ingrese nivel del juego 1:");
+        int nivel1 = sc.nextInt();
+        sc.nextInt(); // Limpiar el buffer
+
+        System.out.println("Iingrese la marca del juego 1:");
+        String marca1 = sc.nextLine();
+
+        System.out.printl("Ingrese el almacenamiento de la consola del juego 1:");
+        int almacenamiento1 = sc.nextInt();
+
+        Consola consola1 = new Consola(marca1, almacenamiento1);
+        Juego juego1 = new Juego(nombre1, nivel1, consola1);
+
+        // Crear segundo juego
+        System.our.println("ingrese nombre del juego 2:");
+        String nombre2 = sc.nextLine();
+
+        System.out.println("Ingrese nivel del juego 2:");
+        int nivel2 = sc.nextInt();
+
+        System.out.println("Ingrese la marca del juego 2:");
+        String marca2 = sc.nextLine();
+
+        System.out.println("Ingrese almacenamiento de la consola del juego 2:");
+        int almacenamiento2 = sc.nextInt();
+
+        Consola consola2 = new Consola(marca2, almacenamiento2);
+        Juego juego2 = new Juego(nombre2, nivel2, consola2);
+    }
 }
