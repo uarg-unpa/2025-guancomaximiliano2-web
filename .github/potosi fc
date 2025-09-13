@@ -62,7 +62,7 @@ public class Main {
         int nivel1 = sc.nextInt();
         sc.nextInt(); // Limpiar el buffer
 
-        System.out.println("Iingrese la marca del juego 1:");
+        System.out.println("Ingrese la marca del juego 1:");
         String marca1 = sc.nextLine();
 
         System.out.printl("Ingrese el almacenamiento de la consola del juego 1:");
@@ -86,5 +86,24 @@ public class Main {
 
         Consola consola2 = new Consola(marca2, almacenamiento2);
         Juego juego2 = new Juego(nombre2, nivel2, consola2);
+
+        // Invocar metodos y mostrar resultados
+        System.out.println("\n== RESULTADOS ===");
+
+        // Juego 1
+        System.out.println(juego1);
+        System.out.println("¿Alta capacidad?: " + juego1.altaCapacidad());
+        juego1.aumentarNivel();
+        System.out.println("Nivel tras aumentar: " + juego1.nivel);
+        System.out.println("Tiempo estimado: " + juego1.estimarTiempoJuego());
+
+        // Juego 2
+        System.out.println(juego2);
+        System.out.println("¿Alta capacidad?: " + juego2.altaCapacidad());
+        juego2.aumentarNivel();
+        System.out.println("Nivel tras aumentar: " + juego2.nivel);
+        System.out.println("Tiempo estimado: " + juego2.estimarTiempoJuego() + "horas");
+
+        sc.close();
     }
 }
