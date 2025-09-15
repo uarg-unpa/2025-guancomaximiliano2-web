@@ -1,0 +1,46 @@
+public class Plataforma {
+    String nombre;
+    int precioMensual;
+
+    public Plataforma(String nombre, int precioMensual) {
+        this.nombre = nombre;
+        this.precioMensual = precioMensual;
+    }
+
+    public String toString() {
+        return nombre + "(Precio del servicio por mes: )" + precioMensual;
+    }
+}
+
+public class Pelicula {
+    String titulo;
+    int duracion;
+    Plataforma plataforma;
+    // Constructor
+    public Pelicula(String titulo, int duracion, Plataforma plataforma) { 
+        this.titulo = titulo;
+        this.duracion = duracion;
+        this.plataforma = plataforma; 
+    }
+    
+    public boolean eslarga() {
+        return duracion > 150;
+    }
+
+    public void reducirDuracion() {
+        duracion -= 10;
+    }
+
+    public double convertirMinutosAHoras() {
+        return duracion / 60.0;
+    }
+
+    public double estimarCostoPorHora() { 
+        double horas = convertirMinutosAHoras();
+        return precioMensual / (30.0 * horas); // Costo estimado por hora
+    }
+
+    public String toString() {
+        return "Titulo: " + titulo + ", Duracion: " + convertirMinutosAHoras() + " horas" + ", Plataforma: " + plataforma;
+    }
+}
