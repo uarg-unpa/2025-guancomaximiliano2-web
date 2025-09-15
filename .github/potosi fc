@@ -1,7 +1,7 @@
 public class Consola {
     String marca;
     int almacenamiento;
-
+    // Constructor de Consola
     public Consola(String marca, int almacenamiento) {
         this.marca = marca;
         this.almacenamiento = almacenamiento;
@@ -11,26 +11,26 @@ public class Consola {
         return marca + " (" + almacenamiento + "GB";
     }
 }
-
+// Clase de Juego
 public class Juego {
     String nombre;
     int nivel;
     Consola consola;
-
+    // Constructor de Juego
     public Juego(String nombe; int nivel, Consola consola) {
         this.nombre = nombre;
         this.nivel = nivel;
         this.consola = consola;
     }
-
+    // Metodo alta capacidad
     public boolean altaCapacidad() {
         return consola.almacenamiento > 100;
     }
-
+    // Metodo aumentar nivel
     public void aumentarNivel(){
         nivel++;
     }
-
+    // Metodo estimar tiempo
     public int estimarTiempoJuego() {
         return nivel * 2;
     }
