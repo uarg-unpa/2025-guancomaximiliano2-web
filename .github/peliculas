@@ -8,7 +8,7 @@ public class Plataforma {
     }
 
     public String toString() {
-        return nombre + "(Precio del servicio por mes: )" + precioMensual;
+        return nombre + "(Precio del servicio por mes: " + precioMensual; + ")"
     }
 }
 
@@ -22,7 +22,7 @@ public class Pelicula {
         this.duracion = duracion;
         this.plataforma = plataforma; 
     }
-    
+    // Metodos
     public boolean eslarga() {
         return duracion > 150;
     }
@@ -37,10 +37,71 @@ public class Pelicula {
 
     public double estimarCostoPorHora() { 
         double horas = convertirMinutosAHoras();
-        return precioMensual / (30.0 * horas); // Costo estimado por hora
+        return plataforma.precioMensual / (30.0 * horas); // Costo estimado por hora
     }
 
     public String toString() {
         return "Titulo: " + titulo + ", Duracion: " + convertirMinutosAHoras() + " horas" + ", Plataforma: " + plataforma;
+    }
+}
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner leer = new Scanner(System.in);
+
+        // Primera pelicula
+        System.out.println("Ingrese el titulo de la pelicula 1:");
+        String titulo1 = leer.nextLine(); 
+
+        System.out.println("Ingrese la duracion de la peli 1(En minutos):");
+        int duracion1 = leer.nextInt();
+        // Primera plataforma
+        System.out.println("Ingrese la plataforma de la pelicula:");
+        String nombrePlataforma1 = leer.nextLine();
+
+        System.out.println("Ingrese el monto mesual de la plataforma:");
+        int monto1 = leer.nextInt();
+
+        // Creanda primera plataforma y pelicula
+        Plataforma plataforma1 = new Plataforma(nombrePlataforma1, monto1);
+        Pelicula pelicula1 = new Pelicula(titulo1, duracion1, nombrePlataforma1);
+
+        // Segunda pelicula
+        System.out.println("Ingrese el titulo de la pelicula 2:");
+        String titulo2 = leer.nextLine();
+
+        System.out.println("Ingrese la duracion de la peli 2(En minutos:)");
+        int duracion2 = leer.nextInt();
+        // Segunda plataforma
+        System.out.println("Ingrese la plataforma de la pelicula:");
+        String nombrePlataforma2 = leer.nextLine();
+
+        System.out.println("Ingrse el monto mensual de la plataforma:");
+        int monto2 = leer.nextInt();
+        // Creando segunda plataforma y pelicula
+        Plataforma plataforma2 = new Plataforma(nombrePlataforma1, monto2);
+        Pelicula pelicula2 = new Pelicula(titulo2, duracion2, nombrePlataforma2);
+
+        // Invocando metodos y resultados
+        System.out.println("=== METODOS ===");
+        
+        // Pelicula 1
+        System.out.println(pelicula1);
+        System.out.println("¿La pelicula es larga?:");
+        if (pelicula1.esLarga()) {
+            System.out.println("Si, tremendo chori esa pelicula");
+        }
+        else {
+            System.out.println("No xddd")
+        }
+
+        pelicula1.reducirDuracion();
+        System.out.println("Duracion: " + pelicula1.duracion);
+
+        System.out.println("¿Entoces cuanto dura la peli?:" + pelicula1.convertirMinutosAHoras());
+
+        System.out.println("¿Cuanto me cuesta ver la peli?: " + pelicula1.estimarCostoPorHora());
     }
 }
