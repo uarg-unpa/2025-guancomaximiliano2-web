@@ -23,7 +23,7 @@ public class Pelicula {
         this.plataforma = plataforma; 
     }
     // Metodos
-    public boolean eslarga() {
+    public boolean esLarga() {
         return duracion > 150;
     }
 
@@ -81,7 +81,7 @@ public class Main {
         System.out.println("Ingrse el monto mensual de la plataforma:");
         int monto2 = leer.nextInt();
         // Creando segunda plataforma y pelicula
-        Plataforma plataforma2 = new Plataforma(nombrePlataforma1, monto2);
+        Plataforma plataforma2 = new Plataforma(nombrePlataforma2, monto2);
         Pelicula pelicula2 = new Pelicula(titulo2, duracion2, nombrePlataforma2);
 
         // Invocando metodos y resultados
@@ -98,10 +98,29 @@ public class Main {
         }
 
         pelicula1.reducirDuracion();
-        System.out.println("Duracion: " + pelicula1.duracion);
+        System.out.println("Duracion tras ser reducida: " + pelicula1.duracion);
 
-        System.out.println("¿Entoces cuanto dura la peli?:" + pelicula1.convertirMinutosAHoras());
+        System.out.println("¿Entoces cuanto dura la peli?: " + pelicula1.convertirMinutosAHoras());
 
-        System.out.println("¿Cuanto me cuesta ver la peli?: " + pelicula1.estimarCostoPorHora());
+        System.out.println("¿Cuanto me cuesta ver solo esa peli?: " + pelicula1.estimarCostoPorHora());
+
+        // Pelicula 2
+        System.out.println(pelicula2);
+        System.out.println("¿Es larga la pelicula?");
+        if (pelicula2.esLarga()) {
+            System.out.pritln("Si, es larga la pelicula");
+        }
+        else {
+            System.out.println("La pelicula no es tan larga");
+        }
+
+        pelicula2.reducirDuracion();
+        System.out.println("Duracion tras ser reducida: " + pelicula2.duracion);
+
+        System.out.println("¿Entocnes cuanto dura la peli?: " + pelicula2.convertirMinutosAHoras());
+
+        System.out.println("¿Cuanto me cuesta ver solo esa peli?: " + pelicula2.estimarCostoPorHora());
+
+        leer.close();
     }
 }
