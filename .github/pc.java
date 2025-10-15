@@ -49,8 +49,12 @@ public class Pc {
 
     // Metodo para actualizar la RAM
     public void actualizarRam(int nuevaRam) {
-        this.ram = nuevaRam;
-        System.out.println("RAM actualizada a: " + nuevaRam + " GB");
+        if (nuevaRam > 0) {
+            this.ram = nuevaRam;
+            System.out.println("RAM actulizada a:" + nuevaRam + " GB");
+        } else {
+            System.out.println("Datos invalidos, la RAM debe ser mayor a 0");
+        }
     }
 
     // Metodo para aplicar descuento
