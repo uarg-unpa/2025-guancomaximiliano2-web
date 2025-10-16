@@ -85,3 +85,65 @@ public class Pc {
     }
 
 }
+
+import java.util.Scanner;
+
+public class MainPc {
+    public static void main(String[] args) {
+
+        // Crear el Scanner
+        Scanner leer = new Scanner(System.in);
+
+        // Pedir al usuario los datos de la PC 1
+        System.out.println("Ingrese la marca de la PC 1:");
+        String marca1 = leer.nextLine();
+
+        System.out.println("Ingrese el procesador de la PC 1:");
+        String procesador1 = leer.nextLine();
+
+        System.out.println("Ingrese precio de la PC 1:");
+        double precio1 = leer.nextDouble();
+
+        System.out.println("Ingrese la RAM de la PC 1:");
+        int ram1 = leer.nextInt();
+
+        // Creando la PC 1
+        Pc pc1 = new Pc(marca1, procesador1, precio1, ram1);
+
+        // Pedir al usuario los datos de la PC 2
+        System.out.println("Ingrese la marca de la PC 2:");
+        String marca2 = leer.nextLine();
+
+        System.out.println("Ingrese el procesador de la PC 2:");
+        String procesador2 = leer.nextLine();
+
+        System.out.println("Ingrese el precio de la PC 2:");
+        double precio2 = leer.nextDouble();
+
+        System.out.println("Ingrese la RAM de la PC 2:");
+        int ram2 = leer.nextInt();
+
+        // Crear la PC 2
+        Pc pc2 = new Pc(marca2, procesador2, precio2, ram2);
+
+
+        // Mostrar informacion
+        System.out.println("=== Informacion inicial ===");
+        pc1.mostrarInformacion();
+        pc2.mostrarInformacion();
+
+        // Actualizar RAM
+        pc1.actualizarRam(14);
+
+        // Aplicar descuento
+        pc2.aplicarDescuento(10); // Descuento del 10%
+
+        // Comparar cual tiene mas RAM
+        Pc mayor = pc1.mayorRam(pc2);
+        System.out.println("La PC con mayor RAM es: " + mayor.getMarca());
+
+        System.out.println("=== Datos actualizados ===");
+        pc1.mostrarInformacion();
+        pc2.mostrarInformacion();
+    }
+}
