@@ -133,10 +133,14 @@ public class MainPc {
         pc2.mostrarInformacion();
 
         // Actualizar RAM
-        pc1.actualizarRam(14);
+        System.out.println("Ingrese la nueva RAM de la PC 1:");
+        int nuevaRam = leer.nextInt();
+        pc1.actualizarRam(nuevaRam);
 
         // Aplicar descuento
-        pc2.aplicarDescuento(10); // Descuento del 10%
+        System.out.println("Ingrese el descuento para la PC 2:");
+        double porcentaje = leer.nextDouble();
+        pc2.aplicarDescuento(porcentaje);
 
         // Comparar cual tiene mas RAM
         Pc mayor = pc1.mayorRam(pc2);
