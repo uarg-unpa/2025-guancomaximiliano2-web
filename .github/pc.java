@@ -84,6 +84,23 @@ public class Pc {
         }
     }
 
+    // Metodo para cambiar la marca de la PC
+    public void actualizarMarca(String nuevaMarca) {
+        if (nuevaMarca != null && !nuevaMarca.isEmpty()) {
+            marca = nuevaMarca;
+        } else {
+            System.out.println("¡Marca invalida!");
+        }
+    }
+
+    // Metodo para cambiar el procesador de la PC
+    public void actualizarProcesador(String nuevoProcesador) { 
+        if (nuevoProcesador != null && !nuevoProcesador.isEmpty()) {
+            procesador = nuevoProcesador;
+        } else {
+            System.out.println("Procesador invalido");
+        }
+    }
 }
 
 import java.util.Scanner;
@@ -149,5 +166,23 @@ public class MainPc {
         System.out.println("=== Datos actualizados ===");
         pc1.mostrarInformacion();
         pc2.mostrarInformacion();
+
+        // cambiar la marca de la Pc 1
+        System.out.println("Ingrese la nueva marca de la PC 1:");
+        String nuevaMarca = leer.nextLine();
+        pc1.actualizarMarca(nuevaMarca);
+
+        // Cambiar el procesador de la PC 2
+        System.out.println("Ingrese el nuevo procesador de la PC 2:");
+        String nuevoProcesador = leer.nextLine();
+        pc2.actualizarProcesador(nuevoProcesador);
+
+        System.pout.println("=== Datos actualizados ===");
+        pc1.mostrarInformacion();
+        System.out.println("-----------------------------");
+        pc2.mostrarInformacion();
+        System.out.println("-----------------------------");
     }
+
+    leer.close();
 }
