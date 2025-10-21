@@ -63,7 +63,7 @@ public class Smartphone {
             this.almacenamiento = nuevoAlmacenamiento;
             System.out.println("Almacenamiento interno actualizado a: " + nuevoAlmacenamiento + " GB");
         } else {
-            System.out.println("¡La RAM no puede ser menor a 0!")
+            System.out.println("¡El almacenamiento no puede ser menor a 0!");
         }
     }
 
@@ -83,12 +83,12 @@ public class Smartphone {
         System.out.println("Modelo: " + modelo);
         System.out.println("Precio: $" + precio);
         System.out.println("Almacenamiento interno: " + almacenamiento + " GB");
-        System.out.printlm("Memoria RAM: " + memoriaRam + " GB");
+        System.out.println("Memoria RAM: " + memoriaRam + " GB");
     }
 
     // Metodo para comparar almacenamiento con otro Smartphone
     public Smartphone mayorAlmacenamiento(Smartphone celu) {
-        if (this.almacenamiento > celu.getAlmacenamiento) {
+        if (this.almacenamiento > celu.getAlmacenamiento()) {
             return this;
         } else {
             return celu;
