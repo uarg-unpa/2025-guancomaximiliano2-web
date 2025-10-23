@@ -85,7 +85,7 @@ public class Auto {
 
     // Metodo para comparar kilometraje con otro auto
     public Auto esMasNuevo(Auto chata) {
-        if (this.kilometraje > chata.getKilometraje) {
+        if (this.kilometraje > chata.getKilometraje()) {
             return this.kilometraje;
         } else {
             return chata;
