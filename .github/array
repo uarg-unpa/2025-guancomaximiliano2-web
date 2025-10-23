@@ -1,0 +1,27 @@
+// Practica de arreglo
+int [] numeros = new int [100];
+
+import java.util.Scanner;
+Scanner leer = new Scanner(System.in);
+
+for(int i=0; i<100; i++) {
+    System.out.println("Ingrese el numero para la posicion" + i + ":");
+    numeros[i] = leer.nextInt();
+}
+
+leer.close;
+
+// Mostrar los numeros ingresados en pantalla
+for(int i=0; i<100; i++) {
+    System.out.println("Numero adentro de la posicion" + i + ":");
+    System.out.println(numeros[i]);
+}
+
+// Sumar de todos los numeros
+int sumaTotal=0;
+
+for(int i=0; i<100; i++) {
+    sumaTotal = sumaTotal + numeros[i];
+}
+
+System.out.println("La suma total de los numeros es:" + sumaTotal);
