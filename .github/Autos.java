@@ -37,23 +37,33 @@ public class Auto {
 
     // Metodos setters
     public void setMarca(String nuevaMarca) {
-        this.marca = nuevaMarca;
+        if (nuevaMarca != null && nuevaMarca.isEmpty()) {
+            this.marca = nuevaMarca;
+        }
     }
 
     public void setModelo(String nuevoModelo) {
-        this.modelo = nuevoModelo;
+        if (nuevoModelo != null && nuevoModelo.isEmpty()) {
+            this.modelo = nuevomodelo;
+        }
     }
 
     public void setAño(int nuevoAño) {
-        this.año = nuevoAño;
+        if (nuevoAño > 0) {
+            this.año = nuevoAño;
+        }
     }
 
     public void setPrecio(double nuevoPrecio) {
-        this.precio = nuevoPrecio;
+        if (nuevoPrecio > 0.0) {
+            this.precio = nuevoPrecio;
+        }
     }
 
     public void setKilometraje(int nuevoKilometraje) {
-        this.kilometraje = nuevoKilometraje;
+        if (nuevoKilometraje > 0) {
+            this.kilometraje = nuevoKilometraje;
+        }
     }
 
     // Metodo para aumentar kilometraje
@@ -137,6 +147,9 @@ public class MainAutos {
 
         Auto chata1 = new Auto(marca1, modelo1, año1, precio1, kilometraje1);
 
+        // Limpiar el buffer
+        leer.nextLine();
+
         // Pedir al usuario ingresar los datos del auto 2
         System.out.println("Ingrese la marca del auto 2:");
         String marca2 = leer.nextLine();
@@ -155,6 +168,9 @@ public class MainAutos {
 
         Auto chatita2 = new Auto(marca2, modelo2, año2, precio2, kilometraje2);
 
+        // Limpiar el buffer
+        leer.nextLine();
+
         // Invocar al metodo mostrarInformacion
         System.out.println("Informacion del auto 1: ");
         chata1.mostrarInformacion();
@@ -165,7 +181,6 @@ public class MainAutos {
         System.out.pritnln("Ingrese los quilometros nuevos recorridos por el auto 1: ");
         int kilometrosRecorridos = leer.nextInt();
         chata1.aumentarKilometraje(kilometrosRecorridos);
-        System.out.println("Los kilometros del auto 1 han auentado a: " + chata1.getKilometraje() + " KM");
 
         // Aplicar descuento para el auto 2
         System.out.println("Ingrese el descuento del auto 2: ");
@@ -181,6 +196,35 @@ public class MainAutos {
 
         System.out.println("¿El auto 2 necesita mantenimiento?");
         chatita2.revisarMantenimiento();
+
+        // Limpiar el buffer
+        leer.nextLine();
+
+        // Cambiar todos los datos del auto 1
+        System.out.println("Cambiar todos los datos del auto 1");
+
+        System.out.println("Ingrese la nueva marca del auto 1:");
+        String cambioDeMarca1 = leer.nextLine();
+        chata1.setMarca(cambioDeMarca1);
+
+        System.out.println("Ingrese el nuevo modelo del auto 1:");
+        String cambioDeModelo1 = leer.nextLine();
+        chata1.setModelo(cambioDeModelo1);
+
+        System.out.println("Ingrese el nuevo año del auto 1:");
+        int cambioDeAño1 = leer.nextInt();
+        chata1.setAño(cambioDeAño1);
+
+        System.out.println("Ingrese el nuevo precio del auto 1:");
+        double cambioDePrecio1 = leer.nextDouble();
+        chata1.setPrecio(cambioDePrecio1);
+
+        System.out.println("Ingrese el nuevo kilometraje del auto 1:");
+        int cambioDeKilometraje1 = leer.nextInt();
+        chata1.setKilometraje(cambioDeKilometraje1);
+
+        System.out.println("Informcion del auto 1 actualizada");
+        chata1.mostrarInformacion();
 
         leer.close();
     }
