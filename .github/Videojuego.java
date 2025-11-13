@@ -49,7 +49,7 @@ public class Videojuego {
     }
 
     public void setHorasJugadas(int nuevasHoras) {
-        if (nuevasHoras > 0) {
+        if (nuevasHoras >= 0) {
             this.horasJugadas = nuevasHoras;
         }
     }
@@ -84,11 +84,11 @@ public class Videojuego {
     }
 
     // Metodo para comparar precio con otro juego
-    public Videojuego compararPrecio(Videojuego otroGigaBodrio) {
-        if (this.precio > otroGigaBodrio.getPrecio()) {
+    public Videojuego compararPrecio(Videojuego otroJuego) {
+        if (this.precio > otroJuego.getPrecio()) {
             return this;
         } else {
-            return otroGigaBodrio;
+            return otroJuego;
         }
     }
 }
@@ -114,8 +114,8 @@ public class MainJuegos {
         System.out.println("Ingrese las horas del juego 1: ");
         int horasJugadas1 = leer.nextInt();
 
-        Videojuego J1 = new Videojuego(nombre1, genero1, precio1, horasJugadas1);
-        J1.mostrarInformacion();
+        Videojuego j1 = new Videojuego(nombre1, genero1, precio1, horasJugadas1);
+        j1.mostrarInformacion();
 
         // Limpiar el buffer
         leer.nextLine();
@@ -136,22 +136,22 @@ public class MainJuegos {
         // Limpiar el buffer
         leer.nextLine();
 
-        Videojuego J2 = new Videojuego(nombre2, genero2, precio2, horasJugadas2);
-        J2.mostrarInformacion();
+        Videojuego j2 = new Videojuego(nombre2, genero2, precio2, horasJugadas2);
+        j2.mostrarInformacion();
 
         // Invocar al metodo aumentarHoras
         System.out.println("Ingrese las horas para el juego 1: ");
         int horasSumadas = leer.nextInt();
-        J1.aumentarHoras(horasSumadas);
+        j1.aumentarHoras(horasSumadas);
 
         // Invocar al metodo aplicarDescuento
         System.out.println("Ingrese el descuento para el juego 2: ");
         double descuento = leer.nextDouble();
-        J2.aplicarDescuento(descuento);
+        j2.aplicarDescuento(descuento);
 
         // Comparar precios
         System.out.println("¿Cual juego es mas caro?");
-        Videojuego elMasCaro = J1.compararPrecio(J2);
+        Videojuego elMasCaro = j1.compararPrecio(j2);
         elMasCaro.mostrarInformacion();
 
         leer.close();
