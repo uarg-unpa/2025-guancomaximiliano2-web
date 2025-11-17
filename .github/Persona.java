@@ -43,7 +43,7 @@ public class Persona {
 
     // Metodos setters
     public void setApellido(String nuevoApellido) {
-        if (nuevoApellido != null && !nuevoApellido.isEmpty()) {
+        if (nuevoApellido != null && !nuevoApellido.trim().isEmpty()) {
             this.apellido = nuevoApellido;
         }
     }
