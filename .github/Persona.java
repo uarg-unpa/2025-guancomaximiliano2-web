@@ -78,21 +78,26 @@ public class Persona {
 
     // Metodo para calcular IMC
     public int calcularImc() {
-        imc = peso / (altura ^ 2),
-        if (imc < 18) {
+        // Altura en metros
+        double alturaEnMetros = altura / 100.0;
+        double icm = peso / (alturaEnMetros * alturaEnMetros);
+
+        if (icm < 18) {
             return -1;
-        } else if (imc >= 18 && imc <= 25) {
-            return 1;
-        } else if (imc > 25) {
+        } else if (icm >= 18 && icm <= 25) {
+            return 0;
+        } else {
             return 1;
         }
     }
 
     // Metodo para saber si es mayor de edad
     public boolean esMayorDeEdad() {
-        if (edad >= 50) {
+        if (edad >= 18) {
             return true;
-        } else return false;
+        } else {
+            return false;
+        }
     }
 
     // Metodo para comparar edad con otra persona
@@ -121,7 +126,7 @@ public class MainPersona {
         int dni1 = leer.nextInt();
 
         System.out.println("Ingrese el sexo de persona 1: ");
-        char sexo1 = leer.nextChar();
+        char sexo1 = leer.nextChar().charAt(0);
 
         System.out.println("Ingrese el peso de persona 1: ");
         int peso1 = leer.nextInt();
@@ -140,8 +145,11 @@ public class MainPersona {
         System.out.println("Ingrese la edad de persona 2: ");
         int edad2 = leer.nextInt();
 
+        System.out.println("Ingrese el DNI de persona 2: ");
+        int dni2 = leer.nextInt();
+
         System.out.println("Ingrese el sexo de persona 2: ");
-        char sexo2 = leer.nextChar();
+        char sexo2 = leer.nextChar().charAt(0);
 
         System.out.println("Ingrese el peso de persona 2: ");
         int peso2 = leer.nextInt();
@@ -149,30 +157,26 @@ public class MainPersona {
         System.out.println("Ingrese la altura de persona 2: ");
         int altura2 = leer.nextInt();
 
-        Persona p2 = new Persona(apellido2, edad2, sexo2, peso2, altura2);
+        Persona p2 = new Persona(apellido2, edad2, dni2, sexo2, peso2, altura2);
 
         // Limpiar el buffer
         leer.nextLine();
 
         // Peso ideal de p1
-        int pesoIdeal = p1.calcularImc();
-        if (pesoIdeal == -1) {
+        int icm1 = p1.calcularImc();
+        if (icm1 == -1) {
             System.out.println("La persona 1 esta por debajo de su peso ideal");
-        } else if (pesoIdeal == 0) {
+        } else if (icm1 == 0) {
             System.out.println("La persona 1 esta en su peso ideal");
-        } else if (pesoIdeal == 1) {
-            System.out.println("La persona 1 tiene sobrepeso");
-        }
+        } else System.out.println("La persona 1 tiene sobrepeso");
 
         // Peso ideal de p2
-        int pesoIdeal2 = p2.calcularImc();
-        if (pesoIdeal2 == -1) {
+        int icm2 = p2.calcularImc();
+        if (icm2 == -1) {
             System.out.println("La persona 2 esta por debajo de su peso ideal");
-        } else if (pesoIdeal2 == 0) {
+        } else if (icm2 == 0) {
             System.out.println("La persona 2 esta en su peso ideal");
-        } else if (pesoIdeal2 == 1) {
-            System.out.println("La persona 2 tiene sobrepeso");
-        }
+        } else System.out.println("La persona 2 tiene sobrepeso");
 
         // Cuantos son mayores de edad
         boolean mayor1 = p1.esMayorDeEdad();
@@ -186,7 +190,7 @@ public class MainPersona {
         } else System.out.println("La persona 2 no es mayor de edad");
 
         // Compara edad de p1 con p2
-        boolean elMayor = p1.esMayorQue(Persona p2);
+        boolean elMayor = p1.esMayorQue(p2);
         if (elMayor == true) {
             System.out.println("La persona 1 es mayor que persona 2");
         } else System.out.println("La persona 2 es mayor que persona 1");
