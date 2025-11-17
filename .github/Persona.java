@@ -126,7 +126,7 @@ public class MainPersona {
         int dni1 = leer.nextInt();
 
         System.out.println("Ingrese el sexo de persona 1: ");
-        char sexo1 = leer.nextChar().charAt(0);
+        char sexo1 = leer.next().charAt(0);
 
         System.out.println("Ingrese el peso de persona 1: ");
         int peso1 = leer.nextInt();
@@ -149,7 +149,7 @@ public class MainPersona {
         int dni2 = leer.nextInt();
 
         System.out.println("Ingrese el sexo de persona 2: ");
-        char sexo2 = leer.nextChar().charAt(0);
+        char sexo2 = leer.next().charAt(0);
 
         System.out.println("Ingrese el peso de persona 2: ");
         int peso2 = leer.nextInt();
